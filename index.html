@@ -1,139 +1,1241 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vivek Raj - Personal Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-       nav {
-            background-color: #555;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 10px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        nav a:hover {
-            background-color: #ff8c00;
-            
-        }
-        section {
-            padding: 20px;
-            text-align: center;
-        }
-        .section-title {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .section-content {
-            font-size: 18px;
-            color: #444;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hey Didi ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+:root{
+--pink:#ffd6e8;
+--purple:#e4d4ff;
+--blue:#d9f0ff;
+--peach:#ffe5d0;
+--glass:rgba(255,255,255,0.25);
+}
+
+body{
+overflow-x:hidden;
+background:linear-gradient(135deg,#ffe5ec,#f3ddff,#dff4ff);
+min-height:100vh;
+color:#333;
+}
+
+/* =========================
+FLOATING BACKGROUND
+========================= */
+
+.blob{
+position:fixed;
+border-radius:50%;
+filter:blur(80px);
+opacity:.5;
+z-index:-2;
+animation:floatBlob 18s infinite ease-in-out;
+}
+
+.blob1{
+width:350px;
+height:350px;
+background:#ffb7d5;
+top:-80px;
+left:-100px;
+}
+
+.blob2{
+width:350px;
+height:350px;
+background:#c8c2ff;
+right:-100px;
+top:200px;
+animation-delay:4s;
+}
+
+.blob3{
+width:300px;
+height:300px;
+background:#bdefff;
+bottom:-100px;
+left:20%;
+animation-delay:8s;
+}
+
+@keyframes floatBlob{
+50%{
+transform:translateY(40px) translateX(30px);
+}
+}
+
+.particles{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+z-index:-1;
+}
+
+.sparkle{
+position:absolute;
+font-size:18px;
+animation:floatUp linear infinite;
+opacity:.7;
+}
+
+@keyframes floatUp{
+from{
+transform:translateY(100vh) rotate(0deg);
+}
+to{
+transform:translateY(-100px) rotate(360deg);
+}
+}
+
+/* =========================
+NAV MUSIC BUTTON
+========================= */
+
+.music-btn{
+position:fixed;
+right:20px;
+bottom:20px;
+z-index:999;
+border:none;
+padding:14px 20px;
+border-radius:40px;
+background:rgba(255,255,255,.5);
+backdrop-filter:blur(15px);
+cursor:pointer;
+font-weight:600;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+/* =========================
+GENERAL
+========================= */
+
+section{
+padding:90px 8%;
+}
+
+.section-title{
+text-align:center;
+font-size:2.5rem;
+margin-bottom:50px;
+font-weight:700;
+}
+
+.glass{
+background:rgba(255,255,255,.22);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.3);
+box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+flex-direction:column;
+}
+
+.hero h1{
+font-size:5rem;
+font-weight:800;
+margin-bottom:15px;
+}
+
+.hero p{
+max-width:700px;
+font-size:1.2rem;
+line-height:1.8;
+}
+
+.hero-btn{
+margin-top:35px;
+padding:15px 35px;
+border:none;
+border-radius:50px;
+background:white;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+transition:.3s;
+}
+
+.hero-btn:hover{
+transform:translateY(-5px);
+}
+
+/* =========================
+CARDS
+========================= */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+padding:30px;
+border-radius:25px;
+cursor:pointer;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+}
+
+.card h3{
+margin-bottom:15px;
+font-size:1.3rem;
+}
+
+.card p{
+line-height:1.7;
+}
+
+/* =========================
+FACTS
+========================= */
+
+.fact-box{
+max-width:800px;
+margin:auto;
+padding:40px;
+border-radius:30px;
+}
+
+.bar{
+margin:25px 0;
+}
+
+.bar-title{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+}
+
+.progress{
+height:14px;
+background:#eee;
+border-radius:50px;
+overflow:hidden;
+}
+
+.fill{
+height:100%;
+border-radius:50px;
+background:linear-gradient(90deg,#ff9cc6,#b8a5ff);
+}
+
+.msg{
+margin-top:20px;
+padding:15px;
+border-radius:15px;
+background:white;
+}
+
+/* =========================
+GALLERY
+========================= */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.photo{
+padding:12px;
+border-radius:20px;
+background:white;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+transition:.4s;
+}
+
+.photo:hover{
+transform:scale(1.05);
+}
+
+.photo img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:12px;
+}
+
+.photo p{
+text-align:center;
+margin-top:10px;
+font-weight:600;
+}
+
+/* =========================
+VIDEOS
+========================= */
+
+.video-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+.video-card{
+padding:15px;
+border-radius:25px;
+}
+
+.video-card video{
+width:100%;
+border-radius:15px;
+}
+
+/* =========================
+NOTES
+========================= */
+
+.notes{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.note{
+padding:25px;
+border-radius:20px;
+background:#fff9b0;
+transform:rotate(-2deg);
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+font-weight:600;
+}
+
+.note:nth-child(even){
+transform:rotate(2deg);
+}
+
+/* =========================
+TREAT SECTION
+========================= */
+
+.treat{
+text-align:center;
+}
+
+.countdown{
+font-size:5rem;
+font-weight:800;
+margin:30px 0;
+}
+
+.qr-card{
+max-width:400px;
+margin:auto;
+padding:30px;
+border-radius:25px;
+}
+
+.qr-card img{
+width:100%;
+border-radius:20px;
+}
+
+/* =========================
+FINAL
+========================= */
+
+.final{
+text-align:center;
+}
+
+.certificate{
+max-width:600px;
+margin:40px auto;
+padding:40px;
+border-radius:30px;
+cursor:pointer;
+transition:.4s;
+}
+
+.certificate:hover{
+transform:scale(1.04);
+}
+
+.certificate h2{
+font-size:2rem;
+}
+
+/* =========================
+CONFETTI
+========================= */
+
+.confetti{
+position:fixed;
+width:10px;
+height:10px;
+top:-20px;
+pointer-events:none;
+animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(720deg);
+}
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:3rem;
+}
+
+.section-title{
+font-size:2rem;
+}
+
+.countdown{
+font-size:3rem;
+}
+
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Vivek Raj</h1>
-        <p>Welcome to my personal website!</p>
-    </header>
-    <nav>
-        <a href="#about" style="background-color: #4285F4;">About Me</a>
-        <a href="#skills" style="background-color: #DB4437;">Skills</a>
-        <a href="#interest" style="background-color: #0F9D58;">Interest</a>
-        <a href="#contact" style="background-color: #F4B400;">Contact</a>
-        <a href="#thanking" style="background-color: #d1e599f3;">Thanking</a>
-    </nav>
-    <section id="about" style="background-color: #E1BEE7;">
-        <div class="section-title">About Me</div>
-        <div class="section-content">
-            <p>I'm Vivek Raj, a passionate web developer with a keen interest in creating beautiful and functional websites.</p>
-        <p>With a strong foundation in HTML, CSS, and JavaScript, I love bringing creative ideas to life through coding and design.</p>
-        <p>Explore my portfolio and get in touch to discuss how we can collaborate on your next project!</p>
-        </div>
-    </section>
-    <section id="skills" style="background-color: #FFD54F;">
-        <div class="section-title">Skills</div>
-        <div class="section-content">
-            <ul>
-                <li>Web Development: HTML, CSS, JavaScript</li>
-                <li>Responsive Design</li>
-                <li>UI/UX Design: Adobe XD, Figma</li>
-                <li>Frontend Frameworks: Bootstrap, React</li>
-                <li>Backend Development: Node.js, Python (Django)</li>
-                <li>Version Control: Git, GitHub</li>
-                <li>Problem-Solving</li>
-                <li>Communication</li>
-                <li>Project Management</li>
-                <li>Continuous Learning</li>
-            </ul>
-        </div>
-    </section>
-    <section id="interest" style="background-color: #81C784;">
-        <div class="section-title">Interest</div>
-        <div class="section-content">
-            <p>Greetings! I'm Vivek Raj, and I'm thrilled to share a bit about my interests with you.</p>
-            <p>As a web developer, I'm deeply passionate about creating engaging and user-friendly online experiences. Whether it's crafting elegant designs, implementing seamless functionalities, or solving complex technical challenges, I find joy in every aspect of the web development process.</p>
-            <p>Beyond coding, I'm an avid learner who thrives on exploring new technologies and staying updated with the latest industry trends. I'm always eager to expand my skill set and take on exciting projects that push the boundaries of what's possible on the web.</p>
-            <p>In my free time, you'll often find me tinkering with code, experimenting with new design concepts, or immersing myself in online communities to share knowledge and collaborate with fellow developers. I also enjoy reading tech blogs, attending webinars, and participating in hackathons to further fuel my passion for web development.</p>
-            <p>Above all, I believe in the power of technology to make a positive impact on people's lives. Whether it's through building intuitive user interfaces, optimizing website performance, or creating innovative solutions, I'm committed to leveraging my skills to create meaningful experiences that resonate with users around the world.</p>
-            <p>Thank you for taking the time to learn a bit about me and my interests. I'm excited to connect with you and explore how we can work together to bring your ideas to life on the web!</p>
-            
-        </div>
-    </section>
-    <section id="contact" style="background-color: #64B5F6;">
-        <div class="section-title">Contact</div>
-        <div class="section-content">
-            Email: srimanvivek@gmail.com<br>
-            Phone: 7061355459<br>
-            Address: Nawada,Bihar(India)<br>
-        </div>
-    </section>
-    <section id="thanking" style="background-color: #d1e599f3;">
-        <div class="section-title">Thanking</div>
-        <div class="section-content">
-            <p>
-                <p>Thank you for visiting my website!</p>
-                <p>I appreciate you taking the time to explore my work and learn more about me.</p>
-                <p>If you have any questions, project ideas, or just want to say hello, feel free to reach out to me.</p>
-                <p>I look forward to connecting with you!</p>
-                <p>Best regards,<br>Vivek Raj</p>
-                <p>
-                      
-                </p>
-            </p>
-        </div>
-    </section>
-    <footer>
-        &copy; 2024 Vivek Raj - All Rights Reserved
-    </footer>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+
+<div class="particles" id="particles"></div>
+
+<!-- =========================
+MUSIC
+Replace music.mp3 below
+========================= -->
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">
+🔇 Music Off
+</button>
+
+<!-- =========================
+HERO
+========================= -->
+
+<section class="hero">
+
+<h1>Hey Didi 👋</h1>
+
+<p>
+I made something for you because apparently being talented,
+beautiful and annoying at the same time deserves recognition.
+</p>
+
+<button class="hero-btn"
+onclick="document.getElementById('talk').scrollIntoView()">
+See Why ↓
+</button>
+
+</section>
+
+<!-- =========================
+THINGS WE NEED TO TALK ABOUT
+========================= -->
+
+<section id="talk">
+
+<h2 class="section-title">
+Things We Need To Talk About
+</h2>
+
+<div class="cards">
+
+<div class="card glass">
+<h3>🌟 Too Talented</h3>
+<p>At this point it's getting suspicious.</p>
+</div>
+
+<div class="card glass">
+<h3>✨ Too Smart</h3>
+<p>Kindly stop making the rest of us look bad.</p>
+</div>
+
+<div class="card glass">
+<h3>🎨 Good At Almost Everything</h3>
+<p>Leave some achievements for normal people.</p>
+</div>
+
+<div class="card glass">
+<h3>📸 Looks Good In Every Picture</h3>
+<p>Scientists remain confused.</p>
+</div>
+
+<div class="card glass">
+<h3>💸 Treat Giving Skills</h3>
+<p>Ongoing investigation.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+FACTS SECTION
+========================= -->
+
+<section>
+
+<h2 class="section-title">
+Official Facts About You
+</h2>
+
+<div class="fact-box glass">
+
+<div class="bar">
+<div class="bar-title">
+<span>Talent</span>
+<span>100%</span>
+</div>
+<div class="progress">
+<div class="fill" style="width:100%"></div>
+</div>
+</div>
+
+<div class="bar">
+<div class="bar-title">
+<span>Beauty</span>
+<span>100%</span>
+</div>
+<div class="progress">
+<div class="fill" style="width:100%"></div>
+</div>
+</div>
+
+<div class="bar">
+<div class="bar-title">
+<span>Patience</span>
+<span>95%</span>
+</div>
+<div class="progress">
+<div class="fill" style="width:95%"></div>
+</div>
+</div>
+
+<div class="bar">
+<div class="bar-title">
+<span>Treat Giving</span>
+<span>Loading...</span>
+</div>
+<div class="progress">
+<div class="fill" style="width:35%"></div>
+</div>
+</div>
+
+<div class="msg">
+Scientists are still investigating.
+</div>
+
+<div class="msg">
+Data unavailable.
+</div>
+
+<div class="msg">
+Please contribute snacks for further research.
+</div>
+
+</div>
+
+</section>
+```
+```html
+
+<!-- =========================
+MEMORY GALLERY
+Replace photo1.jpg ... photo5.jpg
+========================= -->
+
+<section id="gallery">
+
+<h2 class="section-title">
+Some Favourite Memories 📸
+</h2>
+
+<div class="gallery">
+
+<div class="photo">
+<!-- Replace photo1.jpg -->
+<img src="photo1.jpg" alt="">
+<p>Favourite Memory #1</p>
+</div>
+
+<div class="photo">
+<!-- Replace photo2.jpg -->
+<img src="photo2.jpg" alt="">
+<p>Favourite Memory #2</p>
+</div>
+
+<div class="photo">
+<!-- Replace photo3.jpg -->
+<img src="photo3.jpg" alt="">
+<p>Favourite Memory #3</p>
+</div>
+
+<div class="photo">
+<!-- Replace photo4.jpg -->
+<img src="photo4.jpg" alt="">
+<p>Favourite Memory #4</p>
+</div>
+
+<div class="photo">
+<!-- Replace photo5.jpg -->
+<img src="photo5.jpg" alt="">
+<p>Favourite Memory #5</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+LIGHTBOX
+========================= -->
+
+<div id="lightbox"
+style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.9);
+justify-content:center;
+align-items:center;
+z-index:9999;
+">
+
+<img id="lightboxImg"
+style="
+max-width:90%;
+max-height:90%;
+border-radius:20px;
+">
+
+</div>
+
+<!-- =========================
+VIDEO MEMORIES
+Replace video1.mp4 & video2.mp4
+========================= -->
+
+<section>
+
+<h2 class="section-title">
+Moments Worth Rewatching 🎥
+</h2>
+
+<div class="video-grid">
+
+<div class="video-card glass">
+
+<!-- Replace video1.mp4 -->
+
+<video controls>
+<source src="video1.mp4" type="video/mp4">
+</video>
+
+</div>
+
+<div class="video-card glass">
+
+<!-- Replace video2.mp4 -->
+
+<video controls>
+<source src="video2.mp4" type="video/mp4">
+</video>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+APPRECIATION NOTES
+========================= -->
+
+<section>
+
+<h2 class="section-title">
+Reasons You Deserve Appreciation 💖
+</h2>
+
+<div class="notes">
+
+<div class="note">
+You always support people.
+</div>
+
+<div class="note">
+You work hard.
+</div>
+
+<div class="note">
+You make life less boring.
+</div>
+
+<div class="note">
+You somehow manage everything.
+</div>
+
+<div class="note">
+You deserve more appreciation than you get.
+</div>
+
+<div class="note">
+You make family moments better.
+</div>
+
+<div class="note">
+You're stronger than you think.
+</div>
+
+<div class="note">
+You've helped more people than you realize.
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+VERY IMPORTANT MATTER
+========================= -->
+
+<section class="treat">
+
+<h2 class="section-title">
+The Very Important Matter
+</h2>
+
+<h3>
+Now that we've established you're awesome...
+</h3>
+
+<br>
+
+<h3>
+We need to discuss a critical issue.
+</h3>
+
+<br>
+
+<h3>
+I still haven't received my official sibling treat.
+</h3>
+
+<div class="countdown" id="countdown">
+3
+</div>
+
+<h2>
+💸 Treat Fund Collection Center 💸
+</h2>
+
+<br>
+
+<p style="font-size:1.1rem;">
+Since we're far away, modern problems require modern solutions.
+</p>
+
+<br><br>
+
+<div class="qr-card glass">
+
+<!-- Replace qr.png with PhonePe QR -->
+
+<img src="qr.png" alt="QR Code">
+
+<br><br>
+
+<h3>PhonePe Accepted ✅</h3>
+
+<h3>UPI Accepted ✅</h3>
+
+<h3>Sibling Pressure Accepted ✅</h3>
+
+</div>
+
+</section>
+
+<!-- =========================
+FINAL MESSAGE
+========================= -->
+
+<section class="final">
+
+<h2 class="section-title">
+Jokes Aside...
+</h2>
+
+<p style="
+max-width:700px;
+margin:auto;
+line-height:2;
+font-size:1.15rem;
+">
+
+You've always been one of my favourite people.
+
+<br><br>
+
+Thank you for everything.
+
+<br>
+
+For the support.
+
+<br>
+
+For the memories.
+
+<br>
+
+For always being there.
+
+<br><br>
+
+And yes, this website was definitely not made just for the treat.
+
+<br><br>
+
+(Okay maybe a little.) 😂
+
+</p>
+
+<div class="certificate glass" id="certificate">
+
+<h2>
+🏆 World's Best Sister
+</h2>
+
+<br>
+
+<h3>
+(According To Me)
+</h3>
+
+<p style="margin-top:15px;">
+Click me 👇
+</p>
+
+</div>
+
+</section>
+```
+```html id="x2pzv8"
+
+<script>
+
+/* ==========================
+FLOATING SPARKLES
+========================== */
+
+const particleContainer =
+document.getElementById("particles");
+
+const icons = [
+"✨",
+"💖",
+"🦋",
+"⭐",
+"🌸"
+];
+
+for(let i=0;i<35;i++){
+
+let span =
+document.createElement("span");
+
+span.classList.add("sparkle");
+
+span.innerHTML =
+icons[Math.floor(Math.random()*icons.length)];
+
+span.style.left =
+Math.random()*100+"%";
+
+span.style.animationDuration =
+(10 + Math.random()*12)+"s";
+
+span.style.fontSize =
+(14 + Math.random()*18)+"px";
+
+span.style.opacity =
+Math.random();
+
+particleContainer.appendChild(span);
+
+}
+
+/* ==========================
+MUSIC TOGGLE
+========================== */
+
+const music =
+document.getElementById("music");
+
+const musicBtn =
+document.querySelector(".music-btn");
+
+let playing = false;
+
+function toggleMusic(){
+
+if(!playing){
+
+music.play();
+
+musicBtn.innerHTML =
+"🔊 Music On";
+
+playing = true;
+
+}else{
+
+music.pause();
+
+musicBtn.innerHTML =
+"🔇 Music Off";
+
+playing = false;
+
+}
+
+}
+
+/* ==========================
+LIGHTBOX GALLERY
+========================== */
+
+const photos =
+document.querySelectorAll(".photo img");
+
+const lightbox =
+document.getElementById("lightbox");
+
+const lightboxImg =
+document.getElementById("lightboxImg");
+
+photos.forEach(img=>{
+
+img.addEventListener("click",()=>{
+
+lightbox.style.display="flex";
+
+lightboxImg.src =
+img.src;
+
+});
+
+});
+
+lightbox.addEventListener("click",()=>{
+
+lightbox.style.display="none";
+
+});
+
+/* ==========================
+COUNTDOWN
+========================== */
+
+const countdown =
+document.getElementById("countdown");
+
+let count = 3;
+
+const timer = setInterval(()=>{
+
+count--;
+
+if(count>0){
+
+countdown.innerHTML =
+count;
+
+}else if(count===0){
+
+countdown.innerHTML =
+"🎉";
+
+}else{
+
+countdown.innerHTML =
+"💸 SEND TREATS 💸";
+
+clearInterval(timer);
+
+}
+
+},1000);
+
+/* ==========================
+SCROLL REVEAL
+========================== */
+
+const observer =
+new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.animate(
+
+[
+{
+opacity:0,
+transform:"translateY(60px)"
+},
+
+{
+opacity:1,
+transform:"translateY(0)"
+}
+],
+
+{
+duration:800,
+fill:"forwards"
+}
+
+);
+
+}
+
+});
+
+});
+
+document.querySelectorAll(
+".card,.photo,.video-card,.note,.fact-box,.certificate"
+)
+
+.forEach(el=>{
+
+el.style.opacity="0";
+
+observer.observe(el);
+
+});
+
+/* ==========================
+CONFETTI
+========================== */
+
+function launchConfetti(){
+
+for(let i=0;i<120;i++){
+
+let confetti =
+document.createElement("div");
+
+confetti.classList.add(
+"confetti"
+);
+
+confetti.style.left =
+Math.random()*100+"vw";
+
+confetti.style.background =
+`hsl(${Math.random()*360},
+90%,70%)`;
+
+confetti.style.width =
+(6+Math.random()*10)+"px";
+
+confetti.style.height =
+(6+Math.random()*10)+"px";
+
+confetti.style.borderRadius =
+Math.random()>.5
+? "50%"
+: "3px";
+
+confetti.style.animationDuration =
+(2+Math.random()*3)+"s";
+
+document.body.appendChild(
+confetti
+);
+
+setTimeout(()=>{
+
+confetti.remove();
+
+},5000);
+
+}
+
+}
+
+/* ==========================
+CERTIFICATE CLICK
+========================== */
+
+const certificate =
+document.getElementById(
+"certificate"
+);
+
+certificate.addEventListener(
+"click",
+
+()=>{
+
+certificate.style.boxShadow =
+"0 0 60px rgba(255,255,255,.9)";
+
+certificate.style.transform =
+"scale(1.08)";
+
+launchConfetti();
+
+setTimeout(()=>{
+
+certificate.style.transform =
+"scale(1)";
+
+},1200);
+
+}
+
+);
+
+/* ==========================
+CARD CLICK EFFECT
+========================== */
+
+document.querySelectorAll(
+".card"
+)
+
+.forEach(card=>{
+
+card.addEventListener(
+"click",
+
+()=>{
+
+card.animate(
+
+[
+{
+transform:"scale(1)"
+},
+
+{
+transform:"scale(1.08)"
+},
+
+{
+transform:"scale(1)"
+}
+],
+
+{
+duration:500
+}
+
+);
+
+}
+
+);
+
+});
+
+/* ==========================
+NOTE FLOAT EFFECT
+========================== */
+
+document.querySelectorAll(
+".note"
+)
+
+.forEach((note,index)=>{
+
+note.animate(
+
+[
+{
+transform:
+`translateY(0px)`
+},
+
+{
+transform:
+`translateY(-10px)`
+},
+
+{
+transform:
+`translateY(0px)`
+}
+],
+
+{
+duration:
+3000 + index*200,
+
+iterations:
+Infinity
+
+}
+
+);
+
+});
+
+/* ==========================
+WELCOME MESSAGE
+========================== */
+
+setTimeout(()=>{
+
+console.log(
+"World's Best Sister Loaded Successfully ❤️"
+);
+
+},1000);
+
+</script>
+
 </body>
 </html>
+```
