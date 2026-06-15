@@ -358,6 +358,66 @@ border-radius:25px;
 width:100%;
 border-radius:20px;
 }
+```css
+.treat-question{
+max-width:700px;
+margin:50px auto;
+padding:40px;
+border-radius:30px;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.choice-box{
+margin-top:30px;
+position:relative;
+height:120px;
+}
+
+.choice-box{
+margin-top:30px;
+height:180px;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+#yesBtn,
+#noBtn{
+min-width:130px;
+}
+
+.choice-box button{
+padding:15px 30px;
+border:none;
+border-radius:50px;
+font-size:1rem;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+#yesBtn{
+background:#7ee081;
+}
+
+#noBtn{
+background:#ff8f8f;
+position:absolute;
+margin-left:20px;
+}
+
+#treatResult{
+margin-top:30px;
+font-size:1.2rem;
+font-weight:600;
+line-height:1.8;
+}
+```
 
 /* =========================
 FINAL
@@ -762,6 +822,33 @@ I still haven't received my official sibling treat.
 3
 </div>
 
+  ```html
+<div class="treat-question glass">
+
+<h2>🚨 Final Decision Time 🚨</h2>
+
+<p>
+Will you officially sponsor your favourite younger brother's treat?
+</p>
+
+<div class="choice-box">
+
+<button id="yesBtn" onclick="acceptTreat()">
+🥳 Yes Of Course
+</button>
+
+<button id="noBtn">
+🙄 No
+</button>
+
+</div>
+
+<div id="treatResult"></div>
+
+</div>
+```
+
+  
 <h2>
 💸 Treat Fund Collection Center 💸
 </h2>
@@ -1221,6 +1308,95 @@ Infinity
 );
 
 });
+```javascript
+```javascript
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+
+let yesScale = 1;
+let attempts = 0;
+
+function moveNoButton(){
+
+attempts++;
+
+const x = Math.random() * 160 - 80;
+const y = Math.random() * 80 - 40;
+
+noBtn.style.transform =
+`translate(${x}px, ${y}px)`;
+
+yesScale += 0.15;
+
+yesBtn.style.transform =
+`scale(${yesScale})`;
+
+if(attempts==2){
+noBtn.innerHTML="🤨 Are You Sure?";
+}
+
+if(attempts==4){
+noBtn.innerHTML="😑 Think Again";
+}
+
+if(attempts==6){
+noBtn.innerHTML="😂 Nice Try";
+}
+
+if(attempts==8){
+noBtn.innerHTML="🏃 Catch Me First";
+}
+
+}
+
+noBtn.addEventListener("click", moveNoButton);
+noBtn.addEventListener("touchstart", moveNoButton);
+```
+
+
+function acceptTreat(){
+
+launchConfetti();
+
+document.getElementById("treatResult").innerHTML = `
+<div style="
+background:white;
+padding:25px;
+border-radius:20px;
+margin-top:20px;
+">
+
+<h2>🏆 Correct Answer Selected!</h2>
+
+<p>
+You are officially the most generous,
+most amazing,
+most talented,
+most beautiful,
+and most legendary sister on this planet. ✨
+</p>
+
+<p>
+The Younger Brother Appreciation Department
+thanks you for your contribution. 😂
+</p>
+
+<p>
+Your reward:
+Unlimited respect,
+premium sibling status,
+and occasional annoying phone calls.
+❤️
+</p>
+
+</div>
+`;
+
+yesBtn.innerHTML = "💖 Best Sister Ever";
+noBtn.style.display = "none";
+
+}
+```
 
 /* ==========================
 WELCOME MESSAGE
