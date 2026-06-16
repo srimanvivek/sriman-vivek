@@ -1,1086 +1,680 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Didi Investigation Department 😭</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Didi, Transfer Money Immediately 💀</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-overflow-x:hidden;
-background:linear-gradient(135deg,#fff4f6,#fdf2f8,#f3e8ff);
-min-height:100vh;
-color:#4b2c3f;
+    overflow-x:hidden;
+    background: linear-gradient(135deg,#fff0f0,#f5e6ff,#e6f0ff);
+    min-height:100vh;
+    color:#2d1b29;
 }
 
 body::before{
-content:"";
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle at 20% 20%,rgba(255,192,203,.4),transparent 30%),
-radial-gradient(circle at 80% 30%,rgba(221,160,221,.35),transparent 30%),
-radial-gradient(circle at 50% 80%,rgba(255,228,196,.35),transparent 35%);
-z-index:-2;
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 15% 15%,rgba(255, 95, 158, 0.25),transparent 35%),
+        radial-gradient(circle at 85% 25%,rgba(183, 108, 255, 0.25),transparent 35%),
+        radial-gradient(circle at 50% 85%,rgba(255, 159, 104, 0.25),transparent 40%);
+    z-index:-2;
+}
+
+.floating{
+    position:fixed;
+    font-size:32px;
+    animation:float 10s linear infinite;
+    pointer-events:none;
+    opacity:.8;
+    z-index:0;
+}
+
+@keyframes float{
+    0%{ transform:translateY(110vh) rotate(0deg); }
+    100%{ transform:translateY(-120px) rotate(360deg); }
 }
 
 .container{
-width:min(1200px,92%);
-margin:auto;
-position:relative;
-z-index:2;
+    width:min(1200px,92%);
+    margin:auto;
+    position:relative;
+    z-index:2;
 }
 
 .glass{
-background:rgba(255,255,255,.25);
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,.35);
-box-shadow:0 8px 32px rgba(0,0,0,.08);
-border-radius:30px;
+    background:rgba(255,255,255,.3);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.5);
+    box-shadow:0 12px 40px rgba(0,0,0,0.06);
+    border-radius:30px;
 }
 
 .hero{
-padding:80px 30px;
-text-align:center;
-margin-top:30px;
+    padding:80px 30px;
+    text-align:center;
+    margin-top:30px;
 }
 
 .hero h1{
-font-size:clamp(2.5rem,6vw,5rem);
-font-weight:800;
-background:linear-gradient(90deg,#ff5f9e,#b76cff,#ff9f68);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+    font-size:clamp(2.2rem,5.5vw,4.5rem);
+    font-weight:800;
+    background:linear-gradient(90deg,#ff3b30,#b76cff,#ff9f68);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:15px;
 }
 
 .subtitle{
-margin-top:20px;
-font-size:1.1rem;
-line-height:1.8;
+    font-size:1.15rem;
+    font-weight: 500;
+    opacity:.9;
+    margin-bottom:40px;
+    color: #4a5568;
+}
+
+.profile-wrap{
+    position:relative;
+    display:inline-block;
 }
 
 .profile{
-width:260px;
-height:260px;
-object-fit:cover;
-border-radius:50%;
-margin-top:30px;
-border:8px solid rgba(255,255,255,.6);
-box-shadow:0 20px 50px rgba(0,0,0,.15);
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    object-fit:cover;
+    border:8px solid rgba(255,255,255,.8);
+    box-shadow:0 20px 50px rgba(0,0,0,.12);
+    background:#fff;
+}
+
+.arrow{
+    position:absolute;
+    right:-140px;
+    top:45%;
+    font-size:2.8rem;
+    animation:bounce 0.8s infinite;
+}
+
+@keyframes bounce{
+    50%{ transform:translateX(20px); }
 }
 
 .hero-text{
-margin-top:25px;
-font-size:1.3rem;
-font-weight:600;
+    margin-top:25px;
+    font-size:1.4rem;
+    font-weight:700;
+    color: #e53e3e;
 }
 
 .section{
-padding:60px 30px;
-margin-top:35px;
+    padding:50px 30px;
+    margin-top:35px;
 }
 
 .section-title{
-font-size:2rem;
-font-weight:700;
-text-align:center;
-margin-bottom:30px;
+    font-size:2.2rem;
+    font-weight:800;
+    margin-bottom:30px;
+    text-align:center;
+    color: #1a202c;
 }
 
 .gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
 }
 
 .frame{
-padding:15px;
-border-radius:25px;
-background:rgba(255,255,255,.25);
+    padding:18px;
+    border-radius:25px;
+    background:rgba(255,255,255,.4);
+    box-shadow:0 8px 20px rgba(0,0,0,0.03);
+    transition:.3s ease-in-out;
+}
+
+.frame:hover{
+    transform:translateY(-10px);
 }
 
 .frame img{
-width:100%;
-height:320px;
-object-fit:cover;
-border-radius:20px;
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:20px;
 }
 
 .caption{
-text-align:center;
-padding:15px;
-font-weight:600;
+    text-align:center;
+    padding:15px 5px 0 5px;
+    font-weight:700;
+    font-size: 1.05rem;
+    color: #2d3748;
 }
 
-.video-card{
-max-width:800px;
-margin:auto;
-overflow:hidden;
-border-radius:25px;
-background:rgba(255,255,255,.25);
-padding:15px;
+.stat{
+    margin-bottom:25px;
 }
 
-.video-card video{
-width:100%;
-border-radius:20px;
+.label{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+    font-weight:700;
+    font-size: 1.1rem;
 }
 
-.video-caption{
-text-align:center;
-padding:15px;
-font-weight:600;
+.bar{
+    height:22px;
+    border-radius:999px;
+    overflow:hidden;
+    background:rgba(255,255,255,.6);
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
-.qr{
-width:300px;
-max-width:90%;
-border-radius:20px;
-border:5px solid white;
+.fill{
+    height:100%;
+    border-radius:999px;
+    background:linear-gradient(90deg,#ff416c,#ff4b2b);
+    animation:grow 2s ease forwards;
+    transform-origin:left;
+}
+
+@keyframes grow{
+    from{ transform:scaleX(0); }
+    to{ transform:scaleX(1); }
+}
+
+.story{
+    font-size:1.2rem;
+    line-height:2;
+    text-align:center;
+    font-weight: 500;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.question{
+    text-align:center;
+    padding:70px 30px;
+    position:relative;
+}
+
+.question h2{
+    font-size:clamp(1.8rem,4.5vw,2.8rem);
+    font-weight: 800;
+    margin-bottom:25px;
+}
+
+.buttons{
+    height:160px;
+    position:relative;
+    margin-top:30px;
+}
+
+.yes{
+    background:linear-gradient(135deg,#00b4db,#0083b0);
+    color:white;
+    border:none;
+    padding:18px 45px;
+    font-size:1.2rem;
+    border-radius:999px;
+    cursor:pointer;
+    font-weight:800;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(0,180,219,.35);
+}
+
+.no{
+    position:absolute;
+    margin-left:20px;
+    background: #2d3748;
+    color: white;
+    border:none;
+    padding:18px 45px;
+    font-size:1.2rem;
+    border-radius:999px;
+    cursor:pointer;
+    font-weight:800;
+    transition:.2s;
+    box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
+.roast{
+    margin-top:25px;
+    font-size:1.3rem;
+    font-weight:700;
+    color: #e53e3e;
+    min-height:40px;
+}
+
+.meter{
+    margin-top:40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.meter-title{
+    font-weight:800;
+    margin-bottom:12px;
+    font-size: 1.1rem;
+}
+
+.meter-bar{
+    height:26px;
+    background:rgba(255,255,255,.6);
+    border-radius:999px;
+    overflow:hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.meter-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#f857a6,#ff5858);
+    transition:.3s;
+}
+
+.percent{
+    margin-top:10px;
+    font-weight:800;
+    font-size: 1.2rem;
+}
+
+/* Pay / Success Section */
+.success{
+    display:none;
+    text-align:center;
+    padding:60px 20px;
+    animation:pop .6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes pop{
+    from{ transform:scale(.8); opacity:0; }
+    to{ transform:scale(1); opacity:1; }
+}
+
+.success h1{
+    font-size:clamp(2.2rem,6vw,4rem);
+    color: #2f855a;
+    font-weight: 800;
+    margin-bottom:20px;
+}
+
+.qr-box {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 25px;
+    display: inline-block;
+    margin: 30px auto;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border: 3px dashed #6b46c1;
+}
+
+.qr-box img {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.qr-title {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #5a43b5;
+    margin-top: 15px;
+}
+
+.achievement{
+    margin:25px auto;
+    display:block;
+    max-width: 500px;
+    padding:20px 30px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.6);
+    border: 2px solid #48bb78;
+}
+
+.confetti{
+    position:fixed;
+    width:10px;
+    height:10px;
+    top:-20px;
+    animation:fall linear forwards;
+    z-index: 999;
+}
+
+@keyframes fall{
+    to{ transform:translateY(110vh) rotate(900deg); }
 }
 
 @media(max-width:768px){
-
-.profile{
-width:220px;
-height:220px;
+    .arrow{
+        position:relative;
+        right:auto;
+        top:auto;
+        display:block;
+        margin-top:15px;
+        transform: rotate(90deg);
+        animation: bounceMobile 0.8s infinite;
+    }
+    @keyframes bounceMobile {
+        50% { transform: translateY(15px) rotate(90deg); }
+    }
+    .profile{ width:200px; height:200px; }
+    .no{ position:relative; display:block; margin:20px auto; }
 }
 
+.music-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
+    font-size:22px;
+    background:rgba(255,255,255,0.7);
+    backdrop-filter:blur(10px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    z-index:9999;
+    transition:0.3s;
 }
-
-    ```html
+.music-btn:hover{ transform:scale(1.1); }
+</style>
 </head>
 <body>
 
 <audio id="bgMusic" loop preload="auto">
-    <source src="song.mp3" type="audio/mpeg">
+  <source src="song.mp3" type="audio/mpeg">
 </audio>
-
 <button id="musicBtn" class="music-btn">🔇</button>
+
+<div class="floating" style="left:5%;animation-delay:0s;">💸</div>
+<div class="floating" style="left:15%;animation-delay:2s;">🔪</div>
+<div class="floating" style="left:30%;animation-delay:5s;">🍕</div>
+<div class="floating" style="left:50%;animation-delay:1s;">💀</div>
+<div class="floating" style="left:70%;animation-delay:4s;">🍟</div>
+<div class="floating" style="left:85%;animation-delay:3s;">💩</div>
+<div class="floating" style="left:92%;animation-delay:6s;">🍔</div>
 
 <div class="container">
 
-<!-- HERO SECTION -->
+    <section class="hero glass">
+        <h1>Didi, We Need To Talk... 💀</h1>
+        <p class="subtitle">
+            An official cyber-intervention by your highly neglected, starving younger brother.
+        </p>
 
-<section class="hero glass">
+        <div class="profile-wrap">
+            <img src="ChatGPT Image Jun 15, 2026, 10_09_35 AM.png" class="profile" alt="Didi looking rich">
+            <div class="arrow">👇💥👇</div>
+        </div>
 
-<h1>🚨 Didi Investigation Department 🚨</h1>
+        <div class="hero-text">
+            Sari pocket money khud pe udani hai, ya chote bhai ko treat bhi deni hai?
+        </div>
+    </section>
 
-<p class="subtitle">
-This website has been created by your younger brother after years of
-careful observation, scientific research, emotional damage,
-and repeated treat rejection.
-<br><br>
-No birthday.
-No special event.
-No festival.
-Just a random investigation.
-</p>
+    <section class="section glass">
+        <h2 class="section-title">🕵️‍♂️ Exhibit A: Proof of Kanjusi</h2>
+        <div class="gallery">
+            <div class="frame">
+                <img src="ChatGPT Image Jun 15, 2026, 10_10_43 AM.png" alt="Didi making excuses">
+                <div class="caption">"Salary nahi aayi abhi tak" (Is wearing brand new clothes).</div>
+            </div>
+            <div class="frame">
+                <img src="ChatGPT Image Jun 15, 2026, 10_38_42 AM.png" alt="Didi ordering online">
+                <div class="caption">Ordering Starbucks silently so I don't ask for a sip.</div>
+            </div>
+            <div class="frame">
+                <img src="ChatGPT Image Jun 15, 2026, 10_40_36 AM.png" alt="Didi ignoring me">
+                <div class="caption"> pretending to be deep in work when I say "Didi party?".</div>
+            </div>
+        </div>
+    </section>
 
-<img src="profile.jpg" class="profile" alt="Didi">
+    <section class="section glass">
+        <h2 class="section-title">📊 Audit Report of Elder Sister</h2>
 
-<div class="hero-text">
-How can someone be this talented,
-this smart,
-this beautiful,
-and still behave like giving a treat is illegal?
-🤨🍕
-</div>
+        <div class="stat">
+            <div class="label"><span>💅 Makeup & Shopping Budget</span><span>500%</span></div>
+            <div class="bar"><div class="fill" style="width:100%"></div></div>
+        </div>
 
-</section>
+        <div class="stat">
+            <div class="label"><span>🙄 Eye Roll Frequency (When I talk)</span><span>100%</span></div>
+            <div class="bar"><div class="fill" style="width:100%"></div></div>
+        </div>
 
+        <div class="stat">
+            <div class="label"><span>🤫 Ability to Hide Snacks in her room</span><span>99.9%</span></div>
+            <div class="bar"><div class="fill" style="width:99.9%"></div></div>
+        </div>
 
-<!-- PHOTO EVIDENCE -->
+        <div class="stat">
+            <div class="label"><span>💸 Treat Distribution Rate to Younger Brother</span><span>0.00%</span></div>
+            <div class="bar"><div class="fill" style="width:1%; background: #e53e3e;"></div></div>
+        </div>
+    </section>
 
-<section class="section glass">
+    <section class="section glass">
+        <h2 class="section-title">📜 The Ultimate Truth</h2>
+        <p class="story">
+            According to the ancient rules of Indian Siblings, an elder sister who earns (or gets pocket money) is legally obligated to fund her younger brother's junk food addiction. 
+            <br><br>
+            Yet, here we are. I had to code an entire website just to break through your level of ignorance. 
+            No more excuses, Didi. The economy is tough, but my stomach is emptier.
+        </p>
+    </section>
 
-<h2 class="section-title">
-📸 Evidence Collected Against Didi
-</h2>
+    <section class="question glass" id="mainQuestion">
+        <h2>Will you finally scan and send money for a treat? 🥺👉👈</h2>
+        
+        <div class="buttons">
+            <button class="yes" id="yesBtn">YES, TAKE MY MONEY 💸</button>
+            <button class="no" id="noBtn">NEVER 😤</button>
+        </div>
 
-<div class="gallery">
+        <div class="roast" id="roast">Click 'YES' if you love me, click 'NEVER' if you want your secrets leaked to Mummy. 👀</div>
 
-<div class="frame">
-<img src="photo1.jpg">
-<div class="caption">
-Caught pretending she forgot about the treat.
-</div>
-</div>
+        <div class="meter">
+            <div class="meter-title">Brother's Anguish Level</div>
+            <div class="meter-bar"><div class="meter-fill" id="meterFill"></div></div>
+            <div class="percent" id="percent">0%</div>
+        </div>
+    </section>
 
-<div class="frame">
-<img src="photo2.jpg">
-<div class="caption">
-Professional excuse manufacturer.
-</div>
-</div>
+    <section class="success glass" id="success">
+        <h1>🎉 TRANSACTION COMPELLED! 🎉</h1>
+        <p>Aww, I knew you were the best Didi (only when you pay) 😉✨</p>
+        
+        <div class="qr-box">
+            <img src="phonepe_qr.png" alt="Scan here to pay your brother" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=PutYourUPIIDHere@ybl'">
+            <div class="qr-title">📱 PhonePe / UPI Scanner</div>
+            <p style="font-size: 0.9rem; color:#718096; margin-top:5px;">Scan kijiye aur tarakki paiye.</p>
+        </div>
 
-<div class="frame">
-<img src="photo3.jpg">
-<div class="caption">
-Smiling after saying "kal pakka".
-</div>
-</div>
+        <div class="achievement">
+            <h2>🏆 Achievement Unlocked</h2>
+            <p><b>ATM Machine Mode: ACTIVATED</b></p>
+        </div>
 
-<div class="frame">
-<img src="photo4.jpg">
-<div class="caption">
-Avoiding financial responsibilities.
-</div>
-</div>
-
-<div class="frame">
-<img src="photo5.jpg">
-<div class="caption">
-Still hasn't paid younger brother tax.
-</div>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- VIDEO EVIDENCE -->
-
-<section class="section glass">
-
-<h2 class="section-title">
-🎬 Secret Video Evidence
-</h2>
-
-<div class="video-card">
-
-<video controls>
-<source src="video1.mp4" type="video/mp4">
-</video>
-
-<div class="video-caption">
-Live footage of Didi changing the topic whenever treats are mentioned.
-</div>
-
-</div>
-
-<br><br>
-
-<div class="video-card">
-
-<video controls>
-<source src="video2.mp4" type="video/mp4">
-</video>
-
-<div class="video-caption">
-Rare documentary footage of treat avoidance in its natural habitat.
-</div>
+        <p style="margin-top:25px; font-weight: 700;">
+            Chalo ab jaldi se check out karo, payment receive hotey hi emotional blackmailing bandh ho jayegi! 😎
+        </p>
+    </section>
 
 </div>
-
-</section>
-
-
-<!-- ANALYSIS REPORT -->
-
-<section class="section glass">
-
-<h2 class="section-title">
-🧠 Official Didi Analysis Report
-</h2>
-
-<div class="stat">
-<div class="label">
-<span>✨ Talent Level</span>
-<span>100%</span>
-</div>
-<div class="bar">
-<div class="fill" style="width:100%"></div>
-</div>
-</div>
-
-<br>
-
-<div class="stat">
-<div class="label">
-<span>😎 Elder Sister Attitude</span>
-<span>100%</span>
-</div>
-<div class="bar">
-<div class="fill" style="width:100%"></div>
-</div>
-</div>
-
-<br>
-
-<div class="stat">
-<div class="label">
-<span>📱 Phone Usage</span>
-<span>100%</span>
-</div>
-<div class="bar">
-<div class="fill" style="width:100%"></div>
-</div>
-</div>
-
-<br>
-
-<div class="stat">
-<div class="label">
-<span>🍕 Treat Distribution Rate</span>
-<span>0.0001%</span>
-</div>
-<div class="bar">
-<div class="fill" style="width:5%"></div>
-</div>
-</div>
-
-</section>
-```
-```html id="s2n8fd"
-
-<!-- RESEARCH FINDINGS -->
-
-<section class="section glass">
-
-<h2 class="section-title">
-📜 Official Research Findings
-</h2>
-
-<p style="
-font-size:1.1rem;
-line-height:2;
-text-align:center;
-max-width:900px;
-margin:auto;
-">
-
-After years of observation, your younger brother has reached some
-very important conclusions.
-
-<br><br>
-
-✔ Didi can find anything lost in the house.
-
-<br>
-
-✔ Didi remembers every embarrassing thing I have ever done.
-
-<br>
-
-✔ Didi can give lectures longer than YouTube ads.
-
-<br>
-
-✔ Didi can detect when I am hiding snacks.
-
-<br><br>
-
-But somehow...
-
-<br><br>
-
-when the topic becomes
-<b>"Treat Kab Dogi?"</b>
-
-<br><br>
-
-the entire system crashes.
-
-<br><br>
-
-Scientists are still investigating this mysterious phenomenon.
-🔬
-
-</p>
-
-</section>
-
-
-
-<!-- PHONEPE PAYMENT CENTER -->
-
-<section class="section glass">
-
-<h2 class="section-title">
-💸 Official Treat Payment Counter
-</h2>
-
-<p style="
-text-align:center;
-font-size:1.1rem;
-line-height:1.8;
-margin-bottom:25px;
-">
-
-If Didi wishes to support her hardworking,
-underappreciated,
-financially struggling younger brother,
-
-<br><br>
-
-she may donate pizza,
-cold drinks,
-momos,
-burgers,
-or emergency chocolate funds below.
-
-😌🍕🍔🍟
-
-</p>
-
-<div style="text-align:center;">
-
-<img src="scanner.png"
-class="qr"
-alt="PhonePe Scanner">
-
-<p style="
-margin-top:20px;
-font-size:1.1rem;
-font-weight:700;
-">
-
-📱 Scan & Sponsor The Treat Mission 🚀
-
-</p>
-
-<p style="
-margin-top:10px;
-opacity:.8;
-">
-
-Current Fund Requirement:
-₹999999999
-
-<br>
-
-Minimum Acceptable Donation:
-₹20 😭
-
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- FINAL QUESTION -->
-
-<section class="section glass" id="mainQuestion">
-
-<h2 style="
-text-align:center;
-font-size:clamp(2rem,5vw,3rem);
-">
-
-Will You Finally Give A Treat?
-🥺👉👈
-
-</h2>
-
-<div class="buttons">
-
-<button class="yes" id="yesBtn">
-YES 😭🍕
-</button>
-
-<button class="no" id="noBtn">
-NO 😌
-</button>
-
-</div>
-
-<div class="roast" id="roast">
-
-Choose wisely, Didi 👀
-
-</div>
-
-
-
-<!-- PROBABILITY METER -->
-
-<div class="meter">
-
-<h3 style="margin-bottom:15px;">
-Probability Of Didi Giving A Treat
-</h3>
-
-<div class="meter-bar">
-
-<div
-class="meter-fill"
-id="meterFill">
-</div>
-
-</div>
-
-<div
-class="percent"
-id="percent">
-
-0%
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- SUCCESS SECTION -->
-
-<section
-class="success glass"
-id="success">
-
-<h1>
-🎉 TREAT APPROVED 🎉
-</h1>
-
-<p>
-
-After years of struggle,
-negotiation,
-and emotional damage...
-
-</p>
-
-<p>
-
-Didi has finally agreed to provide a treat.
-
-</p>
-
-<div class="achievement">
-
-<h2>
-🏆 Achievement Unlocked
-</h2>
-
-<p>
-
-<b>
-Best Didi
-(Treat Provider Edition)
-</b>
-
-</p>
-
-</div>
-
-<p style="margin-top:25px;">
-
-The younger brother is pleased.
-
-😌🍕
-
-</p>
-
-</section>
-
-```
-```html id="n2g4xp"
 
 <script>
-
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 const roast = document.getElementById("roast");
 const meterFill = document.getElementById("meterFill");
 const percent = document.getElementById("percent");
 
-const bgMusic = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
-
-let probability = 0;
-let yesScale = 1;
-
 const roasts = [
-
-"Didi, that wasn't the correct answer 😂",
-
-"The Younger Brother Council rejects this decision.",
-
-"Nice try. Please select YES.",
-
-"Treat dene se bank account band nahi hota 😭",
-
-"Evidence against you is increasing.",
-
-"Didi.exe has stopped responding.",
-
-"Wallet protection mode detected.",
-
-"The YES button is looking lonely.",
-
-"Pizza is waiting.",
-
-"You are under investigation 🚨",
-
-"Suspicious activity detected.",
-
-"Excuse level: Maximum.",
-
-"Even the NO button wants a treat.",
-
-"Are you protecting ₹20 again?",
-
-"Plot twist: You still owe a treat."
-
+    "Nice try, directly running away? 😂",
+    "Mummy ko batau kal raat ko kitne baje tak jagi thi? Click YES. 🤫",
+    "Error: 'Kanjusi' detected. Button disabled.",
+    "Bhagwan dekh raha hai Didi, chote bhai ko rula rahi ho. 😭",
+    "Clicking this won't delete your online shopping cart.",
+    "Button door bhaag raha hai, bilkul tumhare dimag ki tarah!",
+    "Just give the treat already, wallet chota nahi ho jayega! 💀",
+    "Mummy! Dekho Didi fir se bhao khaa rahi hai!",
+    "No is not an option in my code, sis. 💻🔥",
+    "Come on, pay the sibling tax!"
 ];
 
-
+let probability = 0;
+let scale = 1;
 
 function moveNoButton(){
+    const randomX = Math.random() * (window.innerWidth - 180);
+    const randomY = Math.random() * 120;
 
-const btnWidth = noBtn.offsetWidth;
-const btnHeight = noBtn.offsetHeight;
+    noBtn.style.position = "absolute";
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
 
-const maxX = window.innerWidth - btnWidth - 20;
-const maxY = window.innerHeight - btnHeight - 20;
+    probability += 10;
+    if(probability > 100) probability = 100;
 
-const randomX = Math.random() * maxX;
-const randomY = Math.random() * maxY;
+    meterFill.style.width = probability + "%";
+    percent.innerText = probability + "% (Full Rage)";
 
-noBtn.style.position = "fixed";
-noBtn.style.left = randomX + "px";
-noBtn.style.top = randomY + "px";
+    roast.innerText = roasts[Math.floor(Math.random()*roasts.length)];
 
-probability += 10;
-
-if(probability > 100){
-probability = 100;
-}
-
-meterFill.style.width = probability + "%";
-percent.innerText = probability + "%";
-
-roast.innerText =
-roasts[Math.floor(Math.random()*roasts.length)];
-
-yesScale += 0.08;
-
-yesBtn.style.transform =
-`scale(${yesScale})`;
-
-if(probability >= 60){
-
-roast.innerHTML =
-"⚠️ Excessive Treat Avoidance Detected.";
-
-}
-
+    scale += 0.12; // Younger brother's YES button grows even faster and more aggressively
+    yesBtn.style.transform = `scale(${scale})`;
 }
 
 noBtn.addEventListener("mouseover", moveNoButton);
 noBtn.addEventListener("click", moveNoButton);
-noBtn.addEventListener("touchstart", moveNoButton);
 
+const bgMusic = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+let isPlaying = false;
+let fadeInterval;
 
+function fadeInMusic(){
+    bgMusic.volume = 0;
+    const playPromise = bgMusic.play();
+    if(playPromise !== undefined){ playPromise.catch(()=>{}); }
 
-musicBtn.addEventListener("click", ()=>{
+    let vol = 0;
+    clearInterval(fadeInterval);
+    fadeInterval = setInterval(() => {
+        if(vol < 1){
+            vol += 0.05;
+            bgMusic.volume = vol;
+        } else {
+            clearInterval(fadeInterval);
+        }
+    }, 100);
 
-if(bgMusic.paused){
-
-bgMusic.play();
-
-musicBtn.innerHTML = "🔊";
-
-}else{
-
-bgMusic.pause();
-
-musicBtn.innerHTML = "🔇";
-
+    isPlaying = true;
+    musicBtn.innerText = "🔊";
 }
 
+function toggleMusic(){
+    if(isPlaying){
+        bgMusic.pause();
+        isPlaying = false;
+        musicBtn.innerText = "🔇";
+    } else {
+        fadeInMusic();
+    }
+}
+
+musicBtn.addEventListener("click", toggleMusic);
+
+yesBtn.addEventListener("click", async ()=>{
+    document.getElementById("success").style.display="block";
+    document.getElementById("mainQuestion").style.display="none"; // Clear the question out for cleaner view
+    document.body.style.background = "linear-gradient(135deg,#d4fc79,#96e6a1)";
+
+    launchConfetti();
+
+    window.scrollTo({
+        top: document.getElementById("success").offsetTop,
+        behavior: 'smooth'
+    });
+
+    try {
+        bgMusic.volume = 0;
+        await bgMusic.play();
+        let vol = 0;
+        clearInterval(fadeInterval);
+        fadeInterval = setInterval(() => {
+            if(vol < 1){
+                vol += 0.05;
+                bgMusic.volume = vol;
+            } else {
+                clearInterval(fadeInterval);
+            }
+        }, 100);
+        isPlaying = true;
+        musicBtn.innerText = "🔊";
+    } catch (err) {
+        console.log("Audio blocked:", err);
+    }
 });
-
-
-
-yesBtn.addEventListener("click", ()=>{
-
-document.getElementById("success").style.display =
-"block";
-
-window.scrollTo({
-
-top:document.body.scrollHeight,
-
-behavior:"smooth"
-
-});
-
-launchConfetti();
-
-});
-
-
 
 function launchConfetti(){
+    // Cash raining down
+    for(let i=0;i<150;i++){
+        let confetti=document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left=Math.random()*100+"vw";
+        confetti.style.background=`hsl(${Math.random()*360},100%,50%)`;
+        confetti.style.width=(Math.random()*8+8)+"px";
+        confetti.style.height=(Math.random()*15+8)+"px";
+        confetti.style.animationDuration=(Math.random()*2+2)+"s";
+        document.body.appendChild(confetti);
+        setTimeout(()=>{ confetti.remove(); },4000);
+    }
 
-for(let i=0;i<250;i++){
+    // Sibling win celebratory emojis shooting up
+    for(let i=0;i<60;i++){
+        let heart=document.createElement("div");
+        heart.innerHTML=["💸","🤑","🍕","🍟","🥳","👑"][Math.floor(Math.random()*6)];
+        heart.style.position="fixed";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.top="100vh";
+        heart.style.fontSize=(Math.random()*30+20)+"px";
+        heart.style.pointerEvents="none";
+        heart.style.zIndex="9999";
+        document.body.appendChild(heart);
 
-const confetti =
-document.createElement("div");
-
-confetti.classList.add("confetti");
-
-confetti.style.left =
-Math.random()*100 + "vw";
-
-confetti.style.background =
-`hsl(${Math.random()*360},100%,60%)`;
-
-confetti.style.width =
-(Math.random()*10+6)+"px";
-
-confetti.style.height =
-(Math.random()*10+6)+"px";
-
-confetti.style.position = "fixed";
-
-confetti.style.top = "-20px";
-
-confetti.style.zIndex = "9999";
-
-confetti.style.animation =
-`fall ${Math.random()*3+2}s linear forwards`;
-
-document.body.appendChild(confetti);
-
-setTimeout(()=>{
-
-confetti.remove();
-
-},6000);
-
+        heart.animate([
+            {transform:'translateY(0) rotate(0deg)',opacity:1},
+            {transform:`translateY(-120vh) rotate(${Math.random()*360}deg)`,opacity:0}
+        ],{
+            duration:2000+Math.random()*2000,
+            easing:'ease-out'
+        });
+        setTimeout(()=>heart.remove(),4000);
+    }
 }
-
-
-
-for(let i=0;i<80;i++){
-
-const emoji =
-document.createElement("div");
-
-emoji.innerHTML =
-["🎉","🍕","💖","✨","🥳","🍔","🍟"][Math.floor(Math.random()*7)];
-
-emoji.style.position="fixed";
-
-emoji.style.left =
-Math.random()*100+"vw";
-
-emoji.style.top =
-"100vh";
-
-emoji.style.fontSize =
-(Math.random()*25+20)+"px";
-
-emoji.style.zIndex="9999";
-
-emoji.style.pointerEvents="none";
-
-document.body.appendChild(emoji);
-
-emoji.animate([
-
-{
-transform:"translateY(0)",
-opacity:1
-},
-
-{
-transform:"translateY(-120vh)",
-opacity:0
-}
-
-],{
-
-duration:3000+Math.random()*3000,
-
-easing:"ease-out"
-
-});
-
-setTimeout(()=>{
-
-emoji.remove();
-
-},6000);
-
-}
-
-}
-
-
-
-for(let i=0;i<10;i++){
-
-const floating =
-document.createElement("div");
-
-floating.innerHTML =
-["🍕","🍔","🍟","🥤","💖","✨"][Math.floor(Math.random()*6)];
-
-floating.style.position="fixed";
-
-floating.style.left=
-Math.random()*100+"vw";
-
-floating.style.top="100vh";
-
-floating.style.fontSize="30px";
-
-floating.style.opacity=".8";
-
-floating.style.pointerEvents="none";
-
-floating.style.animation=
-`float 12s linear infinite`;
-
-floating.style.animationDelay=
-Math.random()*8+"s";
-
-document.body.appendChild(floating);
-
-}
-
-
-
 </script>
-
-<style>
-
-.buttons{
-
-position:relative;
-
-height:220px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-gap:20px;
-
-margin-top:30px;
-
-}
-
-
-
-.yes{
-
-background:linear-gradient(
-135deg,
-#ff5f9e,
-#ff8b66
-);
-
-color:white;
-
-border:none;
-
-padding:18px 35px;
-
-font-size:1.15rem;
-
-font-weight:700;
-
-border-radius:999px;
-
-cursor:pointer;
-
-transition:.3s;
-
-box-shadow:0 10px 25px rgba(255,95,158,.35);
-
-}
-
-
-
-.no{
-
-background:white;
-
-border:none;
-
-padding:18px 35px;
-
-font-size:1.15rem;
-
-font-weight:700;
-
-border-radius:999px;
-
-cursor:pointer;
-
-}
-
-
-
-.roast{
-
-text-align:center;
-
-margin-top:20px;
-
-font-size:1.2rem;
-
-font-weight:600;
-
-min-height:40px;
-
-}
-
-
-
-.meter{
-
-margin-top:40px;
-
-}
-
-
-
-.meter-bar{
-
-height:25px;
-
-background:rgba(255,255,255,.5);
-
-border-radius:999px;
-
-overflow:hidden;
-
-}
-
-
-
-.meter-fill{
-
-height:100%;
-
-width:0%;
-
-background:linear-gradient(
-90deg,
-#ff5f9e,
-#ffb347
-);
-
-transition:.4s;
-
-}
-
-
-
-.percent{
-
-margin-top:10px;
-
-font-weight:700;
-
-}
-
-
-
-.success{
-
-display:none;
-
-text-align:center;
-
-padding:90px 20px;
-
-}
-
-
-
-.music-btn{
-
-position:fixed;
-
-bottom:20px;
-
-right:20px;
-
-width:60px;
-
-height:60px;
-
-border:none;
-
-border-radius:50%;
-
-font-size:25px;
-
-cursor:pointer;
-
-background:rgba(255,255,255,.7);
-
-backdrop-filter:blur(10px);
-
-z-index:99999;
-
-}
-
-
-
-@keyframes fall{
-
-to{
-
-transform:
-translateY(110vh)
-rotate(900deg);
-
-}
-
-}
-
-
-
-@keyframes float{
-
-0%{
-
-transform:
-translateY(100vh)
-rotate(0deg);
-
-}
-
-100%{
-
-transform:
-translateY(-120px)
-rotate(360deg);
-
-}
-
-}
-
-</style>
-
 </body>
 </html>
-```
-
-```
