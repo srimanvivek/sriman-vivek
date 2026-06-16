@@ -158,6 +158,25 @@ body::before{
     border-radius:20px;
 }
 
+/* Video Showcase Styles */
+.video-showcase {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+}
+
+.video-wrapper video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    border: 3px solid rgba(255, 255, 255, 0.6);
+}
+
 .caption{
     text-align:center;
     padding:15px 5px 0 5px;
@@ -446,7 +465,22 @@ body::before{
             </div>
             <div class="frame">
                 <img src="ChatGPT Image Jun 15, 2026, 10_40_36 AM.png" alt="Didi ignoring me">
-                <div class="caption"> pretending to be deep in work when I say "Didi party?".</div>
+                <div class="caption">Pretending to be deep in work when I say "Didi party?".</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section glass">
+        <h2 class="section-title">🎬 Exhibit B: All-Rounder Talent Showcase</h2>
+        <div class="video-showcase">
+            <div class="video-wrapper">
+                <video controls poster="thumbnail1.jpg">
+                    <source src="talent_showcase.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="caption">
+                Proof of Didi successfully deflecting my requests for food with Olympic-level agility.
             </div>
         </div>
     </section>
@@ -563,7 +597,7 @@ function moveNoButton(){
 
     roast.innerText = roasts[Math.floor(Math.random()*roasts.length)];
 
-    scale += 0.12; // Younger brother's YES button grows even faster and more aggressively
+    scale += 0.12; 
     yesBtn.style.transform = `scale(${scale})`;
 }
 
@@ -609,7 +643,7 @@ musicBtn.addEventListener("click", toggleMusic);
 
 yesBtn.addEventListener("click", async ()=>{
     document.getElementById("success").style.display="block";
-    document.getElementById("mainQuestion").style.display="none"; // Clear the question out for cleaner view
+    document.getElementById("mainQuestion").style.display="none"; 
     document.body.style.background = "linear-gradient(135deg,#d4fc79,#96e6a1)";
 
     launchConfetti();
@@ -640,7 +674,6 @@ yesBtn.addEventListener("click", async ()=>{
 });
 
 function launchConfetti(){
-    // Cash raining down
     for(let i=0;i<150;i++){
         let confetti=document.createElement("div");
         confetti.classList.add("confetti");
@@ -653,7 +686,6 @@ function launchConfetti(){
         setTimeout(()=>{ confetti.remove(); },4000);
     }
 
-    // Sibling win celebratory emojis shooting up
     for(let i=0;i<60;i++){
         let heart=document.createElement("div");
         heart.innerHTML=["💸","🤑","🍕","🍟","🥳","👑"][Math.floor(Math.random()*6)];
